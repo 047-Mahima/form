@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <header>
+        <div class="container">
+          <nav>
+            <ul class="menu">
+              <li><a href="{{ url_for('query') }}">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    
+    <body>
+        <div id="navbar">
+            <div class="container">
+                <a href="query.html"></a>
+        </div>
+        {% block content %}
+        <div class = "container">
+            {% for message in get_flashed_messages() %}
+            <div class="flash">
+                {{message}}
+            </div>
+            {% endfor %}
+            {% block page_content %}{% endblock %}
+        </div>
+        {% endblock %}   
+    </div> 
+</body>
+</html>
